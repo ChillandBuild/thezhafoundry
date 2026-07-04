@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#1c1815" stroke-linecap="square">
+  <path d="M32 3 L57 17 V47 L32 61 L7 47 V17 Z" stroke-width="3" stroke-linejoin="miter"/>
+  <polyline points="21.2,21.2 42.8,21.2 42.8,26.6 35.6,26.6 35.6,32 28.4,32 28.4,37.4 21.2,37.4 21.2,42.8 42.8,42.8"
+    stroke-width="3.5" stroke-linejoin="miter" fill="none"/>
+</svg>
