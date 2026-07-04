@@ -13,27 +13,34 @@ independence does not). The creator of code cannot be its auditor; we are the th
 - **Founder reality v1:** solo, student, no capital. The site is founder-honest — no fake-big
   agency claims, no "elite engineering leads," no enterprise warranty language yet.
 - **Initial technical niche:** Next.js + Supabase apps (what the major vibe-coding tools generate).
-- **The ladder (strategy, also the brand):** Assay → Forge → Care → Standard → Certification.
-  v1 sells the first three rungs and publishes a teaser of the fourth.
+- **The ladder (strategy, also the brand):** Assay → Cast/Forge → Care → Standard →
+  Certification. v1 sells the first three rungs and publishes a teaser of the fourth.
+- **Two cores:** building AI-native products from scratch (The Cast) and rescuing AI-built
+  prototypes (The Forge) — one production line, two intake doors, the Zha Standard at the exit.
 
 ## 2. Offers (the site's funnel)
 
-One funnel: **Assay (free) → Forge (one-time $) → Care (recurring $)**.
+Two doors, one production line: **Assay (free) → Cast or Forge (project) → Care (recurring)**.
+No prices published anywhere on v1; every offer is productized (named scope, fixed
+deliverables, no hourly billing) with a fixed quote issued after the free assay / idea intake.
 
 1. **The Assay** — free audit of a repo/app link. Scored report: security, secrets, scaling
    risks, test coverage, token-cost waste. v1 is semi-automated behind the scenes; the
    interface is the promise. Lead capture = the hero input.
-2. **The Forge** — three fixed-price rescue tiers (no custom quotes):
-   - **Audit** (~$299): full assay + prioritized fix plan.
-   - **Harden** (~$899): audit + security/auth fixes, secrets hygiene, test suite to agreed coverage.
-   - **Full Forge** (~$1,900): harden + refactor, containerization, CI/CD, deployment, handover docs.
-   - Prices are launch placeholders; founder can adjust before publish.
-3. **Foundry Care** — $99–199/mo: dependency updates, CVE patching, uptime monitoring,
-   token-cost drift alerts, monthly health report.
+2. **The Cast** (build new) — bring an idea, we pour an AI-native product. The agent assembly
+   line — PM → Architect → Engineer → QA → DevOps agents — each stage with a human sign-off
+   gate. Fixed-scope MVP sprints. Ships **"born forged"**: pre-verified against the Zha
+   Standard, never needing rescue. Metallurgy naming is literal: casting makes new metal.
+3. **The Forge** (rescue) — bring a vibe-coded prototype, we harden it. Three productized
+   tiers, deliverables listed, quote with assay:
+   - **Audit**: full assay + prioritized fix plan.
+   - **Harden**: audit + security/auth fixes, secrets hygiene, test suite to agreed coverage.
+   - **Full Forge**: harden + refactor, containerization, CI/CD, deployment, handover docs.
+4. **Foundry Care** — subscription: dependency updates, CVE patching, uptime monitoring,
+   token-cost drift alerts, monthly health report. Quoted at handover.
 
-**Explicitly not offered on the site:** from-scratch builds (by referral only), courses,
-community, certification claims. The Zha Standard appears as **v0.1, a published checklist**,
-not a certification service.
+**Explicitly not offered on the site:** courses, community, certification claims. The Zha
+Standard appears as **v0.1, a published checklist**, not a certification service.
 
 ## 3. Brand identity (decided — see artifact "Zha Foundry — Logo Concepts")
 
@@ -70,28 +77,33 @@ not a certification service.
 1. **Nav** — Stepped Z lockup (`THE ZHA FOUNDRY`, copper ZHA) · links: Assay / Forge / Care /
    Standard / Teardowns · CTA button.
 2. **Hero** — H1: **"You vibe code it. We forge it."** Sub (repositioned): the independent
-   foundry that takes AI-built prototypes to production — audited, hardened, kept alive.
-   **Primary element: the Assay input** — paste a GitHub/Replit/Lovable link → free audit
-   report. Secondary CTA: "See the tiers." Molten Z + cooling load sequence.
-3. **Reality Check table** — spec-sheet styling; input column in cooled steel, output in copper.
+   foundry that builds AI-native products and takes AI-built prototypes to production —
+   audited, hardened, kept alive. **Primary element: the Assay input** — paste a
+   GitHub/Replit/Lovable link → free audit report. Secondary CTA: "Bring an idea."
+   Molten Z + cooling load sequence.
+3. **Two doors (pillars)** — **The Cast** (idea → AI-native product, agent assembly line
+   with human sign-off gates rendered as a visual flow) and **The Forge** (prototype →
+   production) side by side. Same production line, same standard at the exit.
+4. **Reality Check table** — spec-sheet styling; input column in cooled steel, output in copper.
    Copy per original brief, one change: "100% automated test coverage" →
    **"Engineered test coverage, verified before handover."**
-4. **The Forge (tiers)** — three fixed-price cards, concrete deliverables listed per tier,
-   mono pricing. No "contact for quote."
-5. **Foundry Care** — the subscription strip: what the agents watch monthly, price, one CTA.
-6. **Process** — five stages on the pour-seam (Intake & Audit → Blueprint → Assembly →
-   Human Review → Shipment), each igniting on scroll. Rails use the ladder glyph.
-7. **"What we don't do"** — the pi.dev-style opinion section: we don't build from scratch;
-   we don't bill hours; we don't certify our own code — we're the independent party that
-   verifies AI's.
-8. **The Zha Standard v0.1** — teaser: published checklist of what production-ready means,
+5. **The Forge tiers** — three productized cards, concrete deliverables listed per tier,
+   no prices; "fixed quote with your free assay."
+6. **Foundry Care** — the subscription strip: what the agents watch monthly, one CTA.
+7. **Process** — five stages on the pour-seam (Intake & Audit → Blueprint → Assembly →
+   Human Review → Shipment), each igniting on scroll, serving both doors. Rails use the
+   ladder glyph.
+8. **"What we don't do"** — the pi.dev-style opinion section: we don't bill hours; we don't
+   ship unreviewed agent output — every stage has a human gate; we don't certify our own
+   code — we're the independent party that verifies AI's.
+9. **The Zha Standard v0.1** — teaser: published checklist of what production-ready means,
    grouped (security, tests, infra, cost, provenance), with the hexagon seal. Real items, not
    marketing bullets.
-9. **Teardown gallery** — 2–3 slots; ships with honest placeholders styled as "Teardown Nº 001 —
-   in progress" (no fake case studies).
-10. **Final CTA + form** — "Stop wrestling with prompt limits. Let's turn your vibe into
-    structural steel." Fields: Name, Email, Project link, Message.
-11. **Footer** — wordmark, founder-honest line (who's building this, build-in-public links),
+10. **Teardown gallery** — 2–3 slots; ships with honest placeholders styled as "Teardown Nº 001 —
+    in progress" (no fake case studies).
+11. **Final CTA + form** — "Stop wrestling with prompt limits. Let's turn your vibe into
+    structural steel." Fields: Name, Email, Project link (or idea), Message.
+12. **Footer** — wordmark, founder-honest line (who's building this, build-in-public links),
     contact. No ladder-story exposition.
 
 ## 6. Technical plan
@@ -115,6 +127,6 @@ first) · certification infrastructure · light theme (dark is the committed bra
 ## 8. Success criteria
 
 A visitor who lands cold can answer in 10 seconds: *what is this, is it for me, what do I do
-next* (paste link). The page reads as designed-by-a-person (opinionated copy, one deep
+next* (paste a link, or bring an idea). The page reads as designed-by-a-person (opinionated copy, one deep
 signature system, zero template patterns), passes the performance/a11y gates above, and every
 claim on it is true today.
