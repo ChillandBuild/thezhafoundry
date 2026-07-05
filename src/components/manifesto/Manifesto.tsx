@@ -1,10 +1,10 @@
 import './manifesto.css';
 
 const REFUSALS: Array<[string, string]> = [
-  ["We don't bill hours", "Every engagement is a fixed scope with a fixed quote, agreed before work starts. The meter never runs."],
-  ["We don't ship unreviewed agent output", "Agents build fast; humans decide what leaves. Every stage of the line ends at a human gate."],
-  ["We don't grade our own homework", "The Zha Standard is public. Check anything we ship against it — that's what it's for."],
-  ["We don't do open-ended engagements", "No retainers that drift, no phase twos that never end. A scope closes, the metal ships."],
+  ['We don’t bill hours', 'Every engagement is a fixed scope with a fixed quote, agreed before work starts. The meter never runs.'],
+  ['We don’t ship unreviewed agent output', 'Agents build fast; humans decide what leaves. Every stage of the line ends at a human gate.'],
+  ['We don’t grade our own homework', 'The Zha Standard is public. Check anything we ship against it — that’s what it’s for.'],
+  ['We don’t do open-ended engagements', 'No retainers that drift, no phase twos that never end. A scope closes, the metal ships.'],
 ];
 
 export function Manifesto() {
