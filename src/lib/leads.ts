@@ -31,6 +31,14 @@ export const leadSchema = z.discriminatedUnion('kind', [
 
 export type Lead = z.infer<typeof leadSchema>;
 
+const FRIENDLY_FALLBACK: Record<string, string> = {
+  kind: 'Something went wrong with the form. Refresh the page and try again.',
+  email: 'Enter a valid email so the report can reach you.',
+  link: 'Paste a project link — GitHub, Replit, Lovable, or a live URL.',
+  name: 'Add your name.',
+  message: 'Say a line about the project or idea — the message is empty.',
+};
+
 export function validateLead(
   input: unknown,
 ): { ok: true; lead: Lead } | { ok: false; error: string } {
@@ -38,6 +46,10 @@ export function validateLead(
   if (parsed.success) return { ok: true, lead: parsed.data };
   const issue = parsed.error.issues[0];
   const field = String(issue?.path?.[0] ?? '');
-  const message = issue?.message ?? 'Check the form and try again.';
-  return { ok: false, error: field && !/email|link|message|name/i.test(message) ? `${field}: ${message}` : message };
+  const message = issue?.message ?? '';
+  const isAuthored = message !== '' && !/invalid|expected|received/i.test(message);
+  return {
+    ok: false,
+    error: isAuthored ? message : (FRIENDLY_FALLBACK[field] ?? 'Check the form and try again.'),
+  };
 }

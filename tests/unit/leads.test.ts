@@ -38,6 +38,24 @@ describe('validateLead', () => {
     expect(res.ok).toBe(false);
   });
 
+  test('unknown kind surfaces friendly copy, not zod internals', () => {
+    const res = validateLead({ kind: 'spam' });
+    expect(res.ok).toBe(false);
+    if (!res.ok) {
+      expect(res.error).not.toMatch(/discriminator|invalid input/i);
+      expect(res.error).toMatch(/try again/i);
+    }
+  });
+
+  test('missing email field surfaces friendly copy, not zod internals', () => {
+    const res = validateLead({ kind: 'assay', link: 'github.com/a/b' });
+    expect(res.ok).toBe(false);
+    if (!res.ok) {
+      expect(res.error).toMatch(/email/i);
+      expect(res.error).not.toMatch(/expected string|received undefined/i);
+    }
+  });
+
   test('trims whitespace on fields', () => {
     const res = validateLead({ kind: 'assay', link: ' github.com/a/b ', email: ' a@b.co ' });
     expect(res.ok).toBe(true);
