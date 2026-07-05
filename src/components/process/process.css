@@ -1,0 +1,20 @@
+.process-list { list-style: none; margin: 48px 0 0; padding: 0; position: relative; }
+.process-list::before {
+  content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--line);
+}
+.stage { position: relative; padding: 0 0 44px 44px; opacity: 1; }
+.stage:last-child { padding-bottom: 0; }
+.stage::before {
+  content: ''; position: absolute; left: 0; top: 6px; width: 16px; height: 16px;
+  background: var(--ground); border: 2px solid var(--steel);
+}
+.stage.lit::before { border-color: var(--copper); background: var(--copper); }
+.stage-tag {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--steel); margin-bottom: 8px; transition: color var(--dur) var(--ease-out);
+}
+.stage.lit .stage-tag { color: var(--copper); }
+.stage h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.stage p { color: var(--muted); max-width: 58ch; }

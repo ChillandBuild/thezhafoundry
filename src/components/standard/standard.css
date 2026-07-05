@@ -1,0 +1,16 @@
+.standard-wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: start; margin-top: 40px; }
+@media (max-width: 760px) { .standard-wrap { grid-template-columns: 1fr; } }
+.standard-seal { width: 120px; height: 120px; }
+.standard-groups { display: grid; gap: 26px; }
+.standard-group h3 {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 10px;
+}
+.standard-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; color: var(--muted); font-size: 0.95rem; }
+.standard-group li::before { content: '□ '; color: var(--faint); }
+.standard-version {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--faint); margin-top: 28px;
+}

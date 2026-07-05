@@ -1,0 +1,6 @@
+.manifesto-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 40px; }
+@media (max-width: 760px) { .manifesto-grid { grid-template-columns: 1fr; } }
+.refusal { border: 1px solid var(--line); padding: 26px 24px; }
+.refusal h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.refusal h3::before { content: '✕ '; color: var(--copper); }
+.refusal p { color: var(--muted); font-size: 0.95rem; }

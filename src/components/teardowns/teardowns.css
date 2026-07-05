@@ -1,0 +1,8 @@
+.teardown-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+@media (max-width: 860px) { .teardown-grid { grid-template-columns: 1fr; } }
+.teardown { border: 1px dashed var(--line); padding: 30px 26px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; }
+.teardown-no {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint);
+}
+.teardown-state { font-weight: 800; font-size: 1.1rem; color: var(--steel); }
