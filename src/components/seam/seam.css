@@ -1,0 +1,9 @@
+.seam {
+  position: fixed; top: 0; bottom: 0; left: max(12px, calc((100vw - var(--container)) / 2 - 40px));
+  width: 2px; z-index: 5; pointer-events: none;
+  background: linear-gradient(to bottom, var(--hot), var(--copper) 55%, var(--deep));
+  transform: scaleY(0); transform-origin: top;
+  opacity: 0.85;
+}
+@media (max-width: 1240px) { .seam { display: none; } }
+@media (prefers-reduced-motion: reduce) { .seam { transform: none; opacity: 0.3; } }
