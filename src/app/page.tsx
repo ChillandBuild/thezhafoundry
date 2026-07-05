@@ -8,6 +8,8 @@ import { ProcessLine } from '../components/process/ProcessLine';
 import { Manifesto } from '../components/manifesto/Manifesto';
 import { ZhaStandard } from '../components/standard/ZhaStandard';
 import { Teardowns } from '../components/teardowns/Teardowns';
+import { ContactSection } from '../components/contact/ContactSection';
+import { SiteFooter } from '../components/footer/SiteFooter';
 
 export default function Home() {
   return (
@@ -23,7 +25,9 @@ export default function Home() {
         <Manifesto />
         <ZhaStandard />
         <Teardowns />
+        <ContactSection />
       </main>
+      <SiteFooter />
     </>
   );
 }

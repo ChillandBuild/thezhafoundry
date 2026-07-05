@@ -1,0 +1,11 @@
+.footer { border-top: 1px solid var(--line); padding-block: 48px; }
+.footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+.footer-lockup { display: flex; align-items: center; gap: 10px; }
+.footer-lockup svg { width: 24px; height: 24px; }
+.footer-lockup span { font-weight: 800; font-size: 12.5px; letter-spacing: 0.18em; }
+.footer-lockup em { font-style: normal; color: var(--copper); }
+.footer-note { color: var(--faint); font-size: 0.88rem; max-width: 46ch; margin-top: 14px; }
+.footer-links { display: grid; gap: 8px; font-family: var(--font-plex-mono), ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+.footer-links a { color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--copper); }
+.footer-legal { width: 100%; margin-top: 32px; color: var(--faint); font-size: 0.8rem; font-family: var(--font-plex-mono), ui-monospace, monospace; letter-spacing: 0.08em; }
