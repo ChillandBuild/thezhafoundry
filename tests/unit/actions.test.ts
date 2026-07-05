@@ -30,4 +30,16 @@ describe('submitLead', () => {
     expect(res.status).toBe('error');
     expect(res.message).toMatch(/email/i);
   });
+
+  test('error state echoes submitted values so forms can restore them', async () => {
+    const res = await submitLead(idle, fd({ kind: 'assay', link: 'github.com/a/b', email: 'a@b' }));
+    expect(res.status).toBe('error');
+    expect(res.values).toEqual({ link: 'github.com/a/b', email: 'a@b', name: '', message: '' });
+  });
+
+  test('sent state does not echo values (form should clear)', async () => {
+    const res = await submitLead(idle, fd({ kind: 'assay', link: 'github.com/a/b', email: 'a@b.co' }));
+    expect(res.status).toBe('sent');
+    expect(res.values).toBeUndefined();
+  });
 });

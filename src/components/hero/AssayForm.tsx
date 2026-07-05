@@ -15,8 +15,23 @@ export function AssayForm() {
         Paste your project link. Get a free assay.
       </label>
       <div className="assay-row">
-        <input id="assay-link" name="link" className="field" placeholder="github.com/you/your-app" autoComplete="url" />
-        <input name="email" type="email" className="field" placeholder="you@company.com" autoComplete="email" aria-label="Email for the report" />
+        <input
+          id="assay-link"
+          name="link"
+          className="field"
+          placeholder="github.com/you/your-app"
+          autoComplete="url"
+          defaultValue={state.values?.link}
+        />
+        <input
+          name="email"
+          type="email"
+          className="field"
+          placeholder="you@company.com"
+          autoComplete="email"
+          aria-label="Email for the report"
+          defaultValue={state.values?.email}
+        />
         <button className="btn" type="submit" disabled={pending}>
           {pending ? 'Reading…' : 'Run the assay'}
         </button>

@@ -2,18 +2,22 @@
 
 import { validateLead } from '../lib/leads';
 
-export type LeadState = { status: 'idle' | 'sent' | 'error'; message: string };
+export type LeadState = {
+  status: 'idle' | 'sent' | 'error';
+  message: string;
+  values?: { link: string; email: string; name: string; message: string };
+};
 
 export async function submitLead(_prev: LeadState, formData: FormData): Promise<LeadState> {
-  const result = validateLead({
-    kind: formData.get('kind'),
-    link: formData.get('link') ?? undefined,
-    email: formData.get('email') ?? undefined,
-    name: formData.get('name') ?? undefined,
-    message: formData.get('message') ?? undefined,
-  });
+  const raw = {
+    link: String(formData.get('link') ?? ''),
+    email: String(formData.get('email') ?? ''),
+    name: String(formData.get('name') ?? ''),
+    message: String(formData.get('message') ?? ''),
+  };
+  const result = validateLead({ kind: formData.get('kind'), ...raw });
 
-  if (!result.ok) return { status: 'error', message: result.error };
+  if (!result.ok) return { status: 'error', message: result.error, values: raw };
 
   // TODO(launch): deliver the lead — wire Resend (email) or a Slack webhook here.
   // Until then it lands in the server log so no submission is silently lost.

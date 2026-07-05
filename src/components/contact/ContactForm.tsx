@@ -14,20 +14,47 @@ export function ContactForm() {
       <div className="row">
         <div>
           <label htmlFor="c-name">Name</label>
-          <input id="c-name" name="name" className="field" placeholder="Name" autoComplete="name" />
+          <input
+            id="c-name"
+            name="name"
+            className="field"
+            placeholder="Name"
+            autoComplete="name"
+            defaultValue={state.values?.name}
+          />
         </div>
         <div>
           <label htmlFor="c-email">Email</label>
-          <input id="c-email" name="email" type="email" className="field" placeholder="Email" autoComplete="email" />
+          <input
+            id="c-email"
+            name="email"
+            type="email"
+            className="field"
+            placeholder="Email"
+            autoComplete="email"
+            defaultValue={state.values?.email}
+          />
         </div>
       </div>
       <div>
         <label htmlFor="c-link">Project link</label>
-        <input id="c-link" name="link" className="field" placeholder="Project link — GitHub, Replit, Lovable (optional for ideas)" />
+        <input
+          id="c-link"
+          name="link"
+          className="field"
+          placeholder="Project link — GitHub, Replit, Lovable (optional for ideas)"
+          defaultValue={state.values?.link}
+        />
       </div>
       <div>
         <label htmlFor="c-message">Message</label>
-        <textarea id="c-message" name="message" className="field" placeholder="What are we casting or forging?" />
+        <textarea
+          id="c-message"
+          name="message"
+          className="field"
+          placeholder="What are we casting or forging?"
+          defaultValue={state.values?.message}
+        />
       </div>
       <div>
         <button className="btn" type="submit" disabled={pending}>

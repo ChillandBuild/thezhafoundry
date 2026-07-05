@@ -51,6 +51,12 @@ test('no horizontal overflow at key breakpoints', async ({ page }) => {
 });
 
 test('screenshots at key breakpoints', async ({ page }) => {
+  // GSAP ScrollTrigger reveals [data-reveal] elements as they enter the viewport,
+  // but Playwright's fullPage screenshot stitches the page together faster than
+  // those transitions can complete, producing screenshots with blank/mid-animation
+  // sections. Reduced motion renders everything visible/static up front, which is
+  // the honest full-page rendering for this deterministic smoke-test artifact.
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const width of [320, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
