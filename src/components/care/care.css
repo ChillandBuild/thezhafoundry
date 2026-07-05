@@ -1,0 +1,10 @@
+.care { background: var(--surface); border: 1px solid var(--line); padding: 40px 34px; display: grid; grid-template-columns: minmax(0, 1.5fr) auto; gap: 28px; align-items: center; margin-top: 0; }
+@media (max-width: 760px) { .care { grid-template-columns: 1fr; } }
+.care h3 { font-size: 1.45rem; margin-bottom: 12px; }
+.care p { color: var(--muted); max-width: 58ch; }
+.care-list {
+  margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px 22px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint);
+  list-style: none; padding: 0;
+}

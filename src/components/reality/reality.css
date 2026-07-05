@@ -1,0 +1,14 @@
+.reality-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+.reality-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.reality-table th {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line);
+}
+.reality-table th.in { color: var(--steel); }
+.reality-table th.out { color: var(--copper); }
+.reality-table td { padding: 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.reality-table td.in { color: var(--steel); }
+.reality-table td.out { color: var(--text); border-left: 1px solid var(--line); }
+.reality-scroll { overflow-x: auto; }
+.reality-table { min-width: 560px; }
