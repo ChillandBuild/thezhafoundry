@@ -38,7 +38,3 @@
 .assay-alt { margin-top: 18px; font-size: 0.95rem; }
 .assay-alt a { color: var(--copper); text-decoration: none; }
 .assay-alt a:hover { text-decoration: underline; }
-
-.form-status { margin-top: 14px; font-size: 0.95rem; }
-.form-status[data-status='sent'] { color: var(--hot); }
-.form-status[data-status='error'] { color: #e2a48a; }

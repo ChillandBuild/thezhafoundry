@@ -37,9 +37,18 @@ export function AssayForm() {
         </button>
       </div>
       <p className="assay-note">Free · Security, tests, cost, scale · Read and signed by a human</p>
-      {state.status !== 'idle' && (
-        <p className="form-status" data-status={state.status} role="status">{state.message}</p>
-      )}
+      {/* Always in the tree with aria-live so announcements are reliable; the
+          role="status" mapping appears only once populated, so a page with two
+          forms exposes a single populated status region at a time. */}
+      <p
+        className="form-status"
+        data-status={state.status}
+        aria-live="polite"
+        aria-atomic="true"
+        role={state.status === 'idle' ? undefined : 'status'}
+      >
+        {state.status === 'idle' ? '' : state.message}
+      </p>
       <p className="assay-alt">
         No repo yet? <a href="#contact">Bring an idea instead →</a>
       </p>

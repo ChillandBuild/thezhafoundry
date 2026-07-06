@@ -19,8 +19,9 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
 
   if (!result.ok) return { status: 'error', message: result.error, values: raw };
 
-  // TODO(launch): deliver the lead — wire Resend (email) or a Slack webhook here.
-  // Until then it lands in the server log so no submission is silently lost.
+  // TODO(launch-gate): deliver the lead — wire Resend (email) or a Slack webhook BEFORE
+  // pointing real traffic here. The console.log below is a development stub; hosted
+  // runtime logs are short-lived, so it is NOT durable storage for real leads.
   console.log('[zha-lead]', JSON.stringify(result.lead));
 
   return {

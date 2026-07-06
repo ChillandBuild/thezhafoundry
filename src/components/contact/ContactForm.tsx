@@ -42,7 +42,7 @@ export function ContactForm() {
           id="c-link"
           name="link"
           className="field"
-          placeholder="Project link — GitHub, Replit, Lovable (optional for ideas)"
+          placeholder="Project link (optional for ideas)"
           defaultValue={state.values?.link}
         />
       </div>
@@ -61,9 +61,18 @@ export function ContactForm() {
           {pending ? 'Sending…' : 'Send it to the foundry'}
         </button>
       </div>
-      {state.status !== 'idle' && (
-        <p className="form-status" data-status={state.status} role="status">{state.message}</p>
-      )}
+      {/* Always in the tree with aria-live so announcements are reliable; the
+          role="status" mapping appears only once populated, so a page with two
+          forms exposes a single populated status region at a time. */}
+      <p
+        className="form-status"
+        data-status={state.status}
+        aria-live="polite"
+        aria-atomic="true"
+        role={state.status === 'idle' ? undefined : 'status'}
+      >
+        {state.status === 'idle' ? '' : state.message}
+      </p>
     </form>
   );
 }

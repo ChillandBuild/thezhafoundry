@@ -14,6 +14,7 @@ export function SteppedZHeat({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true">
       <defs>
+        {/* id must stay document-unique: render SteppedZHeat at most once per page */}
         <linearGradient id="zha-heat" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#ffc46b" />
           <stop offset="0.38" stopColor="#ff9a3d" />
