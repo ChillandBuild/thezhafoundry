@@ -22,10 +22,16 @@ export const metadata: Metadata = {
     'The independent foundry for AI-built software. We pour new AI-native products, take prompt-built prototypes to production, and keep both alive — verified by a human who signs their name.',
 };
 
+// Applies the visitor's saved theme before first paint so there is no flash.
+const themeInit = `(function(){try{var t=localStorage.getItem('zha-theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t}}catch(e){}})()`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${archivo.variable} ${plexMono.variable}`} suppressHydrationWarning>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        {children}
+      </body>
     </html>
   );
 }

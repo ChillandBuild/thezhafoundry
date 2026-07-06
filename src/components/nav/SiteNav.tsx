@@ -1,4 +1,5 @@
 import { SteppedZ } from '../marks/Marks';
+import { ThemeToggle } from './ThemeToggle';
 import './nav.css';
 
 const LINKS = [
@@ -24,7 +25,10 @@ export function SiteNav() {
             ))}
           </ul>
         </nav>
-        <a className="btn btn-ghost" href="#contact">Bring a project</a>
+        <div className="nav-actions">
+          <ThemeToggle />
+          <a className="btn btn-ghost" href="#contact">Bring a project</a>
+        </div>
       </div>
     </header>
   );

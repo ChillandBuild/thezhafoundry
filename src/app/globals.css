@@ -69,5 +69,5 @@ input, textarea { font: inherit; }
 
 .form-status { margin-top: 14px; font-size: 0.95rem; }
 .form-status:empty { margin-top: 0; }
-.form-status[data-status='sent'] { color: var(--deep); }
-.form-status[data-status='error'] { color: #9c3a20; }
+.form-status[data-status='sent'] { color: var(--status-sent); }
+.form-status[data-status='error'] { color: var(--status-error); }

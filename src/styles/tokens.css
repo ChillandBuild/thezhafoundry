@@ -1,5 +1,5 @@
 :root {
-  /* light "foundry daylight" experiment — dark originals in git history */
+  /* light — "foundry daylight" (default) */
   --ground: #f2ede4;
   --surface: #eae4d7;
   --surface-2: #e4ddce;
@@ -12,6 +12,8 @@
   --deep: #8c3a0e;
   --steel: #8a8078;
   --light-tile: #fbf8f2;
+  --status-sent: #8c3a0e;
+  --status-error: #9c3a20;
 
   --text-base: clamp(1rem, 0.92rem + 0.4vw, 1.125rem);
   --text-hero: clamp(2.5rem, 1.1rem + 5.6vw, 5.4rem);
@@ -22,4 +24,46 @@
   --dur: 300ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --container: 1120px;
+
+  color-scheme: light;
+}
+
+/* dark — "foundry night": system preference, unless the visitor chose light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ground: #141110;
+    --surface: #1c1815;
+    --surface-2: #211c18;
+    --line: #2e2822;
+    --text: #f0ebe3;
+    --muted: #9b9288;
+    --faint: #847d75;
+    --copper: #e07830;
+    --hot: #ffb25e;
+    --deep: #b34a16;
+    --steel: #8a8078;
+    --light-tile: #ece5d9;
+    --status-sent: #ffb25e;
+    --status-error: #e2a48a;
+    color-scheme: dark;
+  }
+}
+
+/* explicit visitor choice wins in both directions */
+:root[data-theme='dark'] {
+  --ground: #141110;
+  --surface: #1c1815;
+  --surface-2: #211c18;
+  --line: #2e2822;
+  --text: #f0ebe3;
+  --muted: #9b9288;
+  --faint: #847d75;
+  --copper: #e07830;
+  --hot: #ffb25e;
+  --deep: #b34a16;
+  --steel: #8a8078;
+  --light-tile: #ece5d9;
+  --status-sent: #ffb25e;
+  --status-error: #e2a48a;
+  color-scheme: dark;
 }
