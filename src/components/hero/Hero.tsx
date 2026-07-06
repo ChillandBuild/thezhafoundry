@@ -1,10 +1,9 @@
 import { SteppedZ, SteppedZHeat } from '../marks/Marks';
-import { AssayForm } from './AssayForm';
 import './hero.css';
 
 export function Hero() {
   return (
-    <section className="hero" id="assay" aria-labelledby="hero-heading">
+    <section className="hero" aria-labelledby="hero-heading">
       <div className="container hero-grid">
         <div>
           <p className="hero-readout">
@@ -19,7 +18,6 @@ export function Hero() {
             take prompt-built prototypes to production, and keep both alive —{' '}
             <strong>audited, hardened, and verified by a human who signs their name.</strong>
           </p>
-          <AssayForm />
         </div>
         <div className="hero-mark" aria-hidden="true">
           <SteppedZ className="mark-solid" />

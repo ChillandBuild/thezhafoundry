@@ -1,16 +1,17 @@
 :root {
-  --ground: #141110;
-  --surface: #1c1815;
-  --surface-2: #211c18;
-  --line: #2e2822;
-  --text: #f0ebe3;
-  --muted: #9b9288;
-  --faint: #847d75;
-  --copper: #e07830;
-  --hot: #ffb25e;
-  --deep: #b34a16;
+  /* light "foundry daylight" experiment — dark originals in git history */
+  --ground: #f2ede4;
+  --surface: #eae4d7;
+  --surface-2: #e4ddce;
+  --line: #d9d0bf;
+  --text: #1c1815;
+  --muted: #5f584f;
+  --faint: #6e675e;
+  --copper: #ad4a14;
+  --hot: #c9611f;
+  --deep: #8c3a0e;
   --steel: #8a8078;
-  --light-tile: #ece5d9;
+  --light-tile: #fbf8f2;
 
   --text-base: clamp(1rem, 0.92rem + 0.4vw, 1.125rem);
   --text-hero: clamp(2.5rem, 1.1rem + 5.6vw, 5.4rem);

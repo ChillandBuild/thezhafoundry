@@ -1,5 +1,6 @@
 import { SiteNav } from '../components/nav/SiteNav';
 import { Hero } from '../components/hero/Hero';
+import { AssaySection } from '../components/hero/AssaySection';
 import { TwoDoors } from '../components/doors/TwoDoors';
 import { RealityCheck } from '../components/reality/RealityCheck';
 import { ForgeTiers } from '../components/tiers/ForgeTiers';
@@ -20,6 +21,7 @@ export default function Home() {
       <PourSeam />
       <main id="top">
         <Hero />
+        <AssaySection />
         <TwoDoors />
         <RealityCheck />
         <ForgeTiers />
