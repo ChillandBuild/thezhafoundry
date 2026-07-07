@@ -4,11 +4,34 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.nav-lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.nav-lockup svg { width: 30px; height: 30px; }
-.nav-wordmark { font-weight: 800; font-size: 14px; letter-spacing: 0.18em; }
+/* hot edge — the furnace lip at the top of the page */
+.nav::before {
+  content: ''; display: block; height: 3px;
+  background: linear-gradient(90deg, var(--deep), var(--copper), var(--hot), var(--copper), var(--deep));
+  background-size: 200% 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nav::before { animation: hot-edge 7s linear infinite; }
+  @keyframes hot-edge {
+    from { background-position: 0% 0; }
+    to { background-position: 200% 0; }
+  }
+}
+
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.nav-lockup { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+.nav-lockup svg { width: 34px; height: 34px; }
+.nav-name { display: grid; gap: 3px; }
+.nav-wordmark {
+  font-family: var(--font-stencil), var(--font-archivo), sans-serif;
+  font-weight: 400; font-size: 17px; letter-spacing: 0.2em; line-height: 1;
+}
 .nav-wordmark em { font-style: normal; color: var(--copper); }
+.nav-sub {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 8.5px; font-weight: 500; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--faint); line-height: 1;
+}
 .nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .nav-links a {
   font-family: var(--font-plex-mono), ui-monospace, monospace;

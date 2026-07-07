@@ -13,7 +13,7 @@ export function RealityCheck() {
       <div className="container">
         <p className="eyebrow">The reality check</p>
         <h2 id="reality-heading">What comes in. What goes out.</h2>
-        <div className="reality-scroll" data-reveal>
+        <div className="reality-scroll">
           <table className="reality-table">
             <caption>Comparison of vibe-coded input versus Zha Foundry output</caption>
             <thead>

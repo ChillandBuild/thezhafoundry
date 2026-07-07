@@ -1,9 +1,36 @@
+:root { --seam-left: max(12px, calc((100vw - var(--container)) / 2 - 40px)); }
+
 .seam {
-  position: fixed; top: 0; bottom: 0; left: max(12px, calc((100vw - var(--container)) / 2 - 40px));
-  width: 2px; z-index: 5; pointer-events: none;
+  position: fixed; top: 0; bottom: 0; left: var(--seam-left);
+  width: 4px; z-index: 5; pointer-events: none;
   background: linear-gradient(to bottom, var(--hot), var(--copper) 55%, var(--deep));
+  box-shadow: 0 0 16px color-mix(in srgb, var(--copper) 55%, transparent);
   transform: scaleY(0); transform-origin: top;
-  opacity: 0.85;
 }
-@media (max-width: 1240px) { .seam { display: none; } }
-@media (prefers-reduced-motion: reduce) { .seam { transform: none; opacity: 0.3; } }
+
+/* the pour front — a molten tip that travels with scroll */
+.seam-tip {
+  position: fixed; top: 0; left: calc(var(--seam-left) - 5px);
+  width: 14px; height: 14px; z-index: 6; pointer-events: none;
+  transform: translateY(-20px);
+}
+.seam-tip::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--hot);
+  box-shadow: 0 0 22px 6px color-mix(in srgb, var(--hot) 75%, transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seam-tip::after { animation: tip-flare 1.6s ease-in-out infinite; }
+  @keyframes tip-flare {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: 0.8; }
+  }
+}
+
+@media (max-width: 1240px) {
+  .seam, .seam-tip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seam { transform: none; opacity: 0.3; box-shadow: none; }
+  .seam-tip { display: none; }
+}

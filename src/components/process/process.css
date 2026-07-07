@@ -10,6 +10,14 @@
   background: var(--ground); border: 2px solid var(--steel);
 }
 .stage.lit::before { border-color: var(--copper); background: var(--copper); }
+@media (prefers-reduced-motion: no-preference) {
+  .stage.lit::before { animation: ignite-pulse 0.6s var(--ease-out); }
+  @keyframes ignite-pulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.6); }
+    100% { transform: scale(1); }
+  }
+}
 .stage-tag {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;

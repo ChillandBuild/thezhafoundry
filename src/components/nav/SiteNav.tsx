@@ -1,4 +1,3 @@
-import { SteppedZ } from '../marks/Marks';
 import { ThemeToggle } from './ThemeToggle';
 import './nav.css';
 
@@ -15,8 +14,10 @@ export function SiteNav() {
     <header className="nav">
       <div className="container nav-inner">
         <a href="#top" className="nav-lockup" aria-label="The Zha Foundry — back to top">
-          <SteppedZ />
-          <span className="nav-wordmark">THE <em>ZHA</em> FOUNDRY</span>
+          <span className="nav-name">
+            <span className="nav-wordmark">THE <em>ZHA</em> FOUNDRY</span>
+            <span className="nav-sub">Independent software foundry</span>
+          </span>
         </a>
         <nav aria-label="Main navigation">
           <ul className="nav-links">
