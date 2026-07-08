@@ -25,6 +25,16 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --container: 1120px;
 
+  /* heat system — one ramp used by every molten surface on the page */
+  --heat-ramp: linear-gradient(180deg, #ffc46b, #ff9a3d 38%, #e07830 68%, #8a8078);
+  --heat-ramp-x: linear-gradient(90deg, #8a8078, #e07830 32%, #ff9a3d 62%, #ffc46b);
+  --glow: color-mix(in srgb, var(--copper) 45%, transparent);
+  --glow-hot: color-mix(in srgb, var(--hot) 60%, transparent);
+
+  /* atmosphere — foundry daylight: thin sunlit dust */
+  --grain-opacity: 0.05;
+  --vignette: transparent;
+
   color-scheme: light;
 }
 
@@ -45,6 +55,9 @@
     --light-tile: #ece5d9;
     --status-sent: #ffb25e;
     --status-error: #e2a48a;
+    /* foundry night: forge haze hangs heavier than daylight dust */
+    --grain-opacity: 0.08;
+    --vignette: rgba(8, 5, 3, 0.5);
     color-scheme: dark;
   }
 }
@@ -65,5 +78,7 @@
   --light-tile: #ece5d9;
   --status-sent: #ffb25e;
   --status-error: #e2a48a;
+  --grain-opacity: 0.08;
+  --vignette: rgba(8, 5, 3, 0.5);
   color-scheme: dark;
 }

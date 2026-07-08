@@ -1,15 +1,17 @@
-import { SteppedZ, SteppedZHeat } from '../marks/Marks';
 import { HeroEmbers } from './HeroEmbers';
+import { ExtrudedZ } from './ExtrudedZ';
+import { MoltenField } from './MoltenField';
 import './hero.css';
 
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-heading">
+      <MoltenField />
       <div className="container hero-grid">
         <div>
           <p className="hero-readout">
-            Pour temp <span className="temp-value">1,084.6</span> °C — Cu <span>·</span>{' '}
-            Independent software foundry
+            <span data-decode>Pour temp</span> <span className="temp-value">1,084.6</span> °C — Cu{' '}
+            <span className="dim">·</span> <span data-decode>Independent software foundry</span>
           </p>
           <h1 className="hero-title" id="hero-heading">
             <span className="hero-line">You vibe code it.</span>
@@ -24,8 +26,7 @@ export function Hero() {
         </div>
         <div className="hero-mark" aria-hidden="true">
           <HeroEmbers />
-          <SteppedZ className="mark-solid" />
-          <SteppedZHeat className="mark-heat" />
+          <ExtrudedZ />
         </div>
       </div>
     </section>

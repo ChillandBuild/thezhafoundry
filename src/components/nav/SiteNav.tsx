@@ -27,6 +27,9 @@ export function SiteNav() {
           </ul>
         </nav>
         <div className="nav-actions">
+          <span className="nav-temp" aria-hidden="true">
+            <span data-nav-temp>1,084.6</span>&nbsp;°C
+          </span>
           <ThemeToggle />
           <a className="btn btn-ghost" href="#contact">Bring a project</a>
         </div>

@@ -42,6 +42,15 @@
 @media (max-width: 760px) { .nav-links { display: none; } }
 
 .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+/* the melt gauge — page temperature, cooling as the pour travels down */
+.nav-temp {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em;
+  color: var(--hot); min-width: 74px; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 980px) { .nav-temp { display: none; } }
 .theme-toggle {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;

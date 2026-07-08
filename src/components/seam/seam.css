@@ -7,6 +7,17 @@
   box-shadow: 0 0 16px color-mix(in srgb, var(--copper) 55%, transparent);
   transform: scaleY(0); transform-origin: top;
 }
+@media (prefers-reduced-motion: no-preference) {
+  .seam { filter: url('#seam-molten'); }
+}
+
+/* metal shed from the pour front while it travels */
+.seam-drip {
+  position: fixed; top: 0; left: calc(var(--seam-left) + 0.5px);
+  width: 3px; height: 7px; z-index: 6; pointer-events: none;
+  background: var(--hot); opacity: 0;
+  box-shadow: 0 0 8px 2px color-mix(in srgb, var(--hot) 55%, transparent);
+}
 
 /* the pour front — a molten tip that travels with scroll */
 .seam-tip {
@@ -28,9 +39,9 @@
 }
 
 @media (max-width: 1240px) {
-  .seam, .seam-tip { display: none; }
+  .seam, .seam-tip, .seam-drip { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .seam { transform: none; opacity: 0.3; box-shadow: none; }
-  .seam-tip { display: none; }
+  .seam { transform: none; opacity: 0.3; box-shadow: none; filter: none; }
+  .seam-tip, .seam-drip { display: none; }
 }
