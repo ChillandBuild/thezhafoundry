@@ -1,6 +1,6 @@
 # The Zha Foundry — Monumental Site Plan
 
-Date: 2026-07-08 · Status: **awaiting approval**
+Date: 2026-07-08 · Status: **executed** (all 25 concepts built; 3 iteration passes complete — see [superpowers/specs/iteration-notes.md](superpowers/specs/iteration-notes.md))
 Companion spec: [superpowers/specs/2026-07-08-monumental-site-design.md](superpowers/specs/2026-07-08-monumental-site-design.md)
 
 ## What this is
