@@ -46,6 +46,11 @@ void main() {
   );
   float f = fbm(p + 2.4 * r);
 
+  // molten veins — ridged filaments threading the melt
+  float vein = 1.0 - abs(2.0 * fbm(p * 1.4 + r + t * 0.2) - 1.0);
+  vein = pow(vein, 6.0);
+  f = min(1.0, f + vein * 0.35);
+
   vec3 carbon = vec3(0.078, 0.066, 0.062);
   vec3 deep   = vec3(0.549, 0.227, 0.055);
   vec3 copper = vec3(0.878, 0.471, 0.188);
@@ -62,8 +67,8 @@ void main() {
   cl = mix(cl, deep, smoothstep(0.75, 1.0, f) * 0.35);
   c = mix(c, cl, u_light);
 
-  float alpha = mix(smoothstep(0.20, 0.75, f), smoothstep(0.35, 0.90, f) * 0.8, u_light);
-  gl_FragColor = vec4(c, alpha);
+  float alpha = mix(smoothstep(0.18, 0.7, f) + vein * 0.3, smoothstep(0.35, 0.90, f) * 0.8 + vein * 0.2, u_light);
+  gl_FragColor = vec4(c, min(alpha, 1.0));
 }
 `;
 

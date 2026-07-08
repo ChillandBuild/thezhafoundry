@@ -62,6 +62,7 @@ export const entrance: Effect = ({ gsap }) => {
   );
 
   tl.from('.hero-sub', { y: 18, opacity: 0, duration: 0.6 }, '-=0.45');
+  tl.from('.hero-cta', { y: 16, opacity: 0, duration: 0.5 }, '-=0.35');
   tl.from('.hero-mark', { scale: 0.92, opacity: 0, duration: 0.9, ease: 'power2.out' }, '-=0.6');
 
   document.querySelectorAll('.hero-readout [data-decode]').forEach((el) => decode(gsap, el, 0.9));

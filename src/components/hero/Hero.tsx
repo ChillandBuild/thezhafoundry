@@ -23,6 +23,10 @@ export function Hero() {
             take prompt-built prototypes to production, and keep both alive —{' '}
             <strong>audited, hardened, and verified by a human who signs their name.</strong>
           </p>
+          <p className="hero-cta">
+            <a className="btn" href="#assay">Run the assay</a>
+            <a className="btn btn-ghost" href="#contact">Bring a project</a>
+          </p>
         </div>
         <div className="hero-mark" aria-hidden="true">
           <HeroEmbers />

@@ -25,6 +25,17 @@
 .contact-pitch { color: var(--muted); max-width: 46ch; }
 .contact-pitch strong { color: var(--text); font-weight: 500; }
 .contact-form { display: grid; gap: 14px; }
+
+/* every intake on the floor gets the same machined heat line on focus */
+.contact-form div:has(> .field) { position: relative; }
+.contact-form div:has(> .field)::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--heat-ramp-x);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.55s var(--ease-out);
+  pointer-events: none;
+}
+.contact-form div:has(> .field:focus)::after { transform: scaleX(1); }
 .contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 560px) { .contact-form .row { grid-template-columns: 1fr; } }
 .contact-form textarea { min-height: 140px; resize: vertical; }

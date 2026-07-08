@@ -25,6 +25,15 @@ export const sections: Effect = ({ gsap, ScrollTrigger }) => {
     },
   });
 
+  // section headings rise as their station comes online
+  gsap.set('.section h2', { y: 20, opacity: 0 });
+  ScrollTrigger.batch('.section h2', {
+    start: 'top 84%',
+    once: true,
+    onEnter: (els) =>
+      gsap.to(els, { y: 0, opacity: 1, duration: 0.75, ease: 'power3.out', stagger: 0.08 }),
+  });
+
   // section reveals — staggered when several arrive together
   gsap.set('[data-reveal]', { y: 24, opacity: 0 });
   ScrollTrigger.batch('[data-reveal]', {
