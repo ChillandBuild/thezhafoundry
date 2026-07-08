@@ -70,6 +70,27 @@
 .assay-label { font-weight: 800; font-size: 0.98rem; margin-bottom: 12px; display: block; }
 .assay-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .assay-row .field { flex: 1 1 200px; }
+/* intake slot — focus runs a heat line along the machined opening */
+.assay-slot { position: relative; flex: 1 1 200px; display: block; }
+.assay-slot .field { width: 100%; }
+.assay-slot::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--heat-ramp-x);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.55s var(--ease-out);
+  pointer-events: none;
+}
+.assay-slot:focus-within::after { transform: scaleX(1); }
+
+/* the specimen ticket stamps itself as the link is typed */
+.assay-ticket {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--faint); margin-top: 12px;
+  transition: color var(--dur) var(--ease-out);
+}
+.assay-ticket[data-filled] { color: var(--copper); }
+
 .assay-note {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;

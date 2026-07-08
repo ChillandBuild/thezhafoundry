@@ -4,6 +4,8 @@ import './contact.css';
 export function ContactSection() {
   return (
     <section className="section" id="contact" aria-labelledby="contact-heading">
+      {/* the receiving mold — where the page's pour finally lands */}
+      <span className="pour-mold" aria-hidden="true" />
       <div className="container">
         <p className="eyebrow">Final pour</p>
         <h2 id="contact-heading">Stop wrestling with prompt limits.</h2>

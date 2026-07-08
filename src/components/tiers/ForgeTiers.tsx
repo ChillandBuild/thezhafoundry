@@ -4,6 +4,7 @@ const TIERS = [
   {
     name: 'Audit',
     forWho: 'Know where you stand',
+    heat: 1,
     featured: false,
     items: [
       'Full assay: security, secrets, tests, scaling, token spend',
@@ -14,6 +15,7 @@ const TIERS = [
   {
     name: 'Harden',
     forWho: 'Make it safe to grow',
+    heat: 2,
     featured: true,
     items: [
       'Everything in Audit',
@@ -25,6 +27,7 @@ const TIERS = [
   {
     name: 'Full Forge',
     forWho: 'Make it production',
+    heat: 3,
     featured: false,
     items: [
       'Everything in Harden',
@@ -44,6 +47,11 @@ export function ForgeTiers() {
         <div className="tiers-grid">
           {TIERS.map((tier) => (
             <article key={tier.name} className={tier.featured ? 'tier featured' : 'tier'} data-reveal>
+              <p className="tier-heat" aria-hidden="true">
+                {[1, 2, 3].map((bar) => (
+                  <i key={bar} className={bar <= tier.heat ? 'lit' : undefined} />
+                ))}
+              </p>
               <h3 className="tier-name">{tier.name}</h3>
               <p className="tier-for">{tier.forWho}</p>
               <ul>

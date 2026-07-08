@@ -13,6 +13,7 @@ export function Teardowns() {
         <div className="teardown-grid">
           {['Nº 001', 'Nº 002', 'Nº 003'].map((n) => (
             <article className="teardown" key={n} data-reveal>
+              <span className="crucible-pool" aria-hidden="true" />
               <p className="teardown-no">Teardown {n}</p>
               <p className="teardown-state">In the crucible</p>
             </article>

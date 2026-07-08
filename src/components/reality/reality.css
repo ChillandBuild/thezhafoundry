@@ -8,7 +8,41 @@
 .reality-table th.in { color: var(--steel); }
 .reality-table th.out { color: var(--copper); }
 .reality-table td { padding: 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
-.reality-table td.in { color: var(--steel); }
-.reality-table td.out { color: var(--text); border-left: 1px solid var(--line); }
+
+/* raw material — corroded: scanline texture, unsettled baseline */
+.reality-table td.in {
+  color: var(--steel);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    color-mix(in srgb, var(--steel) 7%, transparent) 3px 4px
+  );
+}
+
+/* cast metal — machined: clean face, molten divider on the melt line */
+.reality-table td.out {
+  color: var(--text);
+  border-left: 2px solid var(--line);
+  transition: border-color 0.9s var(--ease-out);
+}
+.reality-table.lit td.out {
+  border-left-color: var(--copper);
+  box-shadow: inset 3px 0 12px -6px var(--glow-hot);
+}
+
+/* re-forge sweep — heat passes left to right across the row under the hand */
+@media (prefers-reduced-motion: no-preference) {
+  .reality-table tbody tr { position: relative; }
+  .reality-table tbody tr:hover td {
+    animation: reforge 0.9s var(--ease-out);
+  }
+  .reality-table tbody tr:hover td.out { animation-delay: 0.18s; }
+  @keyframes reforge {
+    0% { background-color: transparent; }
+    35% { background-color: color-mix(in srgb, var(--copper) 14%, transparent); }
+    100% { background-color: transparent; }
+  }
+}
+
 .reality-scroll { overflow-x: auto; }
 .reality-table { min-width: 560px; }

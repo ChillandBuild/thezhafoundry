@@ -1,10 +1,67 @@
-.care { background: var(--surface); border: 1px solid var(--line); padding: 40px 34px; display: grid; grid-template-columns: minmax(0, 1.5fr) auto; gap: 28px; align-items: center; margin-top: 0; }
+.care {
+  background: var(--surface); border: 1px solid var(--line); padding: 40px 34px;
+  display: grid; grid-template-columns: minmax(0, 1.5fr) auto; gap: 28px; align-items: center;
+  margin-top: 0; position: relative; overflow: hidden;
+}
 @media (max-width: 760px) { .care { grid-template-columns: 1fr; } }
+.care-body { position: relative; }
 .care h3 { font-size: 1.45rem; margin-bottom: 12px; }
 .care p { color: var(--muted); max-width: 58ch; }
+
+/* the heartbeat trace — a signal that never flatlines */
+.care-trace {
+  position: absolute; left: 0; right: 0; bottom: 10px; height: 40px; width: 100%;
+  opacity: 0.35; pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .care-trace path {
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: care-beat 7s linear infinite;
+  }
+  @keyframes care-beat {
+    0% { stroke-dashoffset: 900; opacity: 0; }
+    8% { opacity: 1; }
+    70% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+}
+
 .care-list {
   margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px 22px;
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint);
   list-style: none; padding: 0;
+}
+/* each watch item runs a breathing status light */
+.care-list li { position: relative; padding-left: 14px; }
+.care-list li::before {
+  content: ''; position: absolute; left: 0; top: 50%; margin-top: -3px;
+  width: 6px; height: 6px; background: var(--copper);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .care-list li::before { animation: watch-breathe 2.8s ease-in-out infinite; }
+  .care-list li:nth-child(2)::before { animation-delay: 0.5s; }
+  .care-list li:nth-child(3)::before { animation-delay: 1s; }
+  .care-list li:nth-child(4)::before { animation-delay: 1.5s; }
+  .care-list li:nth-child(5)::before { animation-delay: 2s; }
+  @keyframes watch-breathe {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; box-shadow: 0 0 6px var(--glow); }
+  }
+}
+
+.care-uptime {
+  margin-top: 20px;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--copper);
+  font-variant-numeric: tabular-nums;
+}
+.care-dot {
+  display: inline-block; width: 6px; height: 6px; background: var(--status-sent);
+  margin-right: 6px; vertical-align: 1px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .care-dot { animation: watch-breathe 1.4s ease-in-out infinite; }
 }

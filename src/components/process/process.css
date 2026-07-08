@@ -1,15 +1,44 @@
-.process-list { list-style: none; margin: 48px 0 0; padding: 0; position: relative; }
+.process-wrap { position: relative; margin-top: 48px; }
+.process-list { list-style: none; margin: 0; padding: 0; position: relative; }
 .process-list::before {
   content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
   width: 2px; background: var(--line);
 }
+
+/* the molten channel — fills with heat as the line is worked */
+.process-fill {
+  position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; z-index: 1;
+  background: linear-gradient(to bottom, var(--hot), var(--copper) 60%, var(--deep));
+  box-shadow: 0 0 10px var(--glow);
+  transform: scaleY(0); transform-origin: top;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-fill { transform: none; box-shadow: none; }
+}
+
 .stage { position: relative; padding: 0 0 44px 44px; opacity: 1; }
 .stage:last-child { padding-bottom: 0; }
 .stage::before {
   content: ''; position: absolute; left: 0; top: 6px; width: 16px; height: 16px;
-  background: var(--ground); border: 2px solid var(--steel);
+  background: var(--ground); border: 2px solid var(--steel); z-index: 2;
 }
 .stage.lit::before { border-color: var(--copper); background: var(--copper); }
+
+/* ghost numerals — casting numbers stenciled on the floor behind each stage */
+.stage::after {
+  content: attr(data-num);
+  position: absolute; right: 0; top: -18px; z-index: -1;
+  font-family: var(--font-stencil), var(--font-archivo), sans-serif;
+  font-size: clamp(4rem, 3rem + 6vw, 7.5rem); line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--steel) 38%, transparent);
+  pointer-events: none;
+  transition: -webkit-text-stroke-color var(--dur) var(--ease-out);
+}
+.stage.lit::after { -webkit-text-stroke-color: color-mix(in srgb, var(--copper) 45%, transparent); }
+@media (max-width: 640px) { .stage::after { display: none; } }
+
 @media (prefers-reduced-motion: no-preference) {
   .stage.lit::before { animation: ignite-pulse 0.6s var(--ease-out); }
   @keyframes ignite-pulse {
@@ -17,7 +46,16 @@
     40% { transform: scale(1.6); }
     100% { transform: scale(1); }
   }
+  /* ember pop — a ring of heat leaves the node the moment it ignites */
+  .stage.lit::before {
+    animation: ignite-pulse 0.6s var(--ease-out), ember-ring 0.9s var(--ease-out);
+  }
+  @keyframes ember-ring {
+    0% { box-shadow: 0 0 0 0 var(--glow-hot); }
+    100% { box-shadow: 0 0 0 26px transparent; }
+  }
 }
+
 .stage-tag {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;

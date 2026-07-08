@@ -14,15 +14,18 @@ export function ProcessLine() {
       <div className="container">
         <p className="eyebrow">The production line</p>
         <h2 id="process-heading">Five stages. Both doors. Same exit.</h2>
-        <ol className="process-list">
-          {STAGES.map(([tag, title, body]) => (
-            <li key={tag} className="stage" data-ignite>
+        <div className="process-wrap">
+          <span className="process-fill" data-process-fill aria-hidden="true" />
+          <ol className="process-list">
+          {STAGES.map(([tag, title, body], i) => (
+            <li key={tag} className="stage" data-ignite data-num={`0${i + 1}`}>
               <p className="stage-tag">{tag}</p>
               <h3>{title}</h3>
               <p>{body}</p>
             </li>
           ))}
-        </ol>
+          </ol>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,43 @@
 /* The footer is always carbon — a fixed dark bookend under both themes,
    so it uses literal foundry-night values instead of theme tokens. */
-.footer { background: #1c1815; padding-block: 56px 48px; }
-.footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+.footer { background: #1c1815; padding-block: 56px 48px; position: relative; overflow: hidden; }
+.footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-start; position: relative; }
+
+/* the cooled casting — the wordmark ghosted into the floor */
+.footer-ghost {
+  position: absolute; left: 50%; bottom: -0.18em; transform: translateX(-50%);
+  font-family: var(--font-stencil), var(--font-archivo), sans-serif;
+  font-size: clamp(3.4rem, 10vw, 9.5rem); line-height: 1; white-space: nowrap;
+  color: transparent; -webkit-text-stroke: 1px rgba(240, 235, 227, 0.07);
+  letter-spacing: 0.06em; pointer-events: none; user-select: none;
+}
+
+/* the last embers on the floor, dying slowly */
+.footer-ember {
+  position: absolute; width: 3px; height: 3px; background: #e07830;
+  opacity: 0.25; pointer-events: none;
+}
+.footer-ember:nth-of-type(1) { left: 64%; bottom: 26px; }
+.footer-ember:nth-of-type(2) { left: 18%; bottom: 34px; }
+.footer-ember:nth-of-type(3) { left: 41%; bottom: 18px; width: 2px; height: 2px; }
+.footer-ember:nth-of-type(4) { right: 22%; bottom: 42px; width: 2px; height: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .footer-ember { animation: ember-die 5.5s ease-in-out infinite; }
+  .footer-ember:nth-of-type(3) { animation-delay: 1.8s; }
+  .footer-ember:nth-of-type(4) { animation-delay: 3.4s; }
+  @keyframes ember-die {
+    0%, 100% { opacity: 0.12; box-shadow: none; }
+    50% { opacity: 0.55; box-shadow: 0 0 6px rgba(224, 120, 48, 0.5); }
+  }
+}
+
+/* ambient readout — the far end of the nav gauge's journey */
+.footer-temp {
+  width: 100%;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #847d75; margin-bottom: 34px;
+}
 .footer-lockup { display: flex; align-items: center; gap: 10px; }
 .footer-lockup svg { width: 24px; height: 24px; }
 .footer-lockup svg polyline { stroke: #e07830; }

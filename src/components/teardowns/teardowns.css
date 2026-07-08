@@ -1,8 +1,44 @@
 .teardown-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
 @media (max-width: 860px) { .teardown-grid { grid-template-columns: 1fr; } }
-.teardown { border: 1px dashed var(--line); padding: 30px 26px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; }
+
+.teardown {
+  border: 1px dashed var(--line); padding: 30px 26px; min-height: 180px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+
+/* the melt simmering at the bottom of each crucible */
+.crucible-pool {
+  position: absolute; left: -10%; right: -10%; bottom: -46px; height: 90px;
+  pointer-events: none;
+  background:
+    radial-gradient(55% 90% at 30% 100%, var(--glow-hot), transparent 70%),
+    radial-gradient(45% 80% at 68% 100%, var(--glow), transparent 72%);
+  opacity: 0.55;
+  filter: blur(6px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .crucible-pool { animation: simmer 6s ease-in-out infinite; }
+  .teardown:nth-child(2) .crucible-pool { animation-delay: 2s; }
+  .teardown:nth-child(3) .crucible-pool { animation-delay: 4s; }
+  @keyframes simmer {
+    0%, 100% { transform: translateX(0) scaleY(1); opacity: 0.45; }
+    50% { transform: translateX(4%) scaleY(1.18); opacity: 0.7; }
+  }
+}
+
 .teardown-no {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint);
+  position: relative;
 }
-.teardown-state { font-weight: 800; font-size: 1.1rem; color: var(--steel); }
+.teardown-state { font-weight: 800; font-size: 1.1rem; color: var(--steel); position: relative; }
+@media (prefers-reduced-motion: no-preference) {
+  /* heat shimmer rising off the surface of the melt */
+  .teardown-state { animation: heat-waver 3.4s ease-in-out infinite; }
+  @keyframes heat-waver {
+    0%, 100% { transform: translateY(0) skewX(0deg); }
+    30% { transform: translateY(-1px) skewX(0.5deg); }
+    65% { transform: translateY(0.5px) skewX(-0.4deg); }
+  }
+}

@@ -4,7 +4,14 @@ import './footer.css';
 export function SiteFooter() {
   return (
     <footer className="footer">
+      <p className="footer-ghost" aria-hidden="true">THE ZHA FOUNDRY</p>
+      <span className="footer-ember" aria-hidden="true" />
+      <span className="footer-ember" aria-hidden="true" />
+      <span className="footer-ember" aria-hidden="true" />
       <div className="container footer-inner">
+        <p className="footer-temp" aria-hidden="true">
+          24.0 °C — ambient · the casting has cooled
+        </p>
         <div>
           <p className="footer-lockup">
             <SteppedZ />

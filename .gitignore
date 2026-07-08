@@ -41,3 +41,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only agent skills (personal tooling, not versioned with the repo)
+/.agents/
+/.impeccable/

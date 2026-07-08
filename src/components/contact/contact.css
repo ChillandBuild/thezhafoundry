@@ -1,3 +1,23 @@
+/* the receiving mold — the seam's pour lands here, at the end of the line */
+.pour-mold {
+  position: absolute; bottom: 0; left: calc(var(--seam-left) - 16px);
+  width: 36px; height: 26px; pointer-events: none;
+  clip-path: polygon(0 0, 18% 100%, 82% 100%, 100% 0, 88% 0, 74% 78%, 26% 78%, 12% 0);
+  background: var(--steel); opacity: 0.65;
+}
+.pour-mold::after {
+  content: ''; position: absolute; left: 26%; right: 26%; bottom: 22%; height: 30%;
+  background: var(--hot);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pour-mold::after { animation: mold-glow 3s ease-in-out infinite; }
+  @keyframes mold-glow {
+    0%, 100% { opacity: 0.6; box-shadow: 0 0 8px 2px var(--glow); }
+    50% { opacity: 1; box-shadow: 0 0 14px 4px var(--glow-hot); }
+  }
+}
+@media (max-width: 1240px) { .pour-mold { display: none; } }
+
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 48px; margin-top: 40px; }
 @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
 .contact-pitch { color: var(--muted); max-width: 46ch; }

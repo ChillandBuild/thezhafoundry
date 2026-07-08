@@ -9,7 +9,7 @@ export function TwoDoors() {
         <p className="eyebrow">Two doors, one production line</p>
         <h2 id="doors-heading">Bring an idea, or bring a prototype. Both leave forged.</h2>
         <div className="doors-grid">
-          <article className="door" id="cast" data-reveal>
+          <article className="door" id="cast" data-door="left">
             <p className="door-tag">Door 01 — The Cast</p>
             <h3>Bring an idea. We pour the product.</h3>
             <p>
@@ -27,7 +27,7 @@ export function TwoDoors() {
               ))}
             </p>
           </article>
-          <article className="door" id="forge" data-reveal>
+          <article className="door" id="forge" data-door="right">
             <p className="door-tag">Door 02 — The Forge</p>
             <h3>Bring a prototype. We make it production.</h3>
             <p>
