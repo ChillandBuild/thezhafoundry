@@ -15,7 +15,11 @@ export function SiteFooter() {
         <div>
           <p className="footer-lockup">
             <SteppedZ />
-            <span>THE <em>ZHA</em> FOUNDRY</span>
+            <em className="footer-zha">ZHA</em>
+            <span className="footer-stack">
+              <span>THE</span>
+              <span>FOUNDRY</span>
+            </span>
           </p>
           <p className="footer-note">
             An independent software foundry, built and run in public by a founder who signs his

@@ -14,9 +14,10 @@ export function SiteNav() {
     <header className="nav">
       <div className="container nav-inner">
         <a href="#top" className="nav-lockup" aria-label="The Zha Foundry — back to top">
-          <span className="nav-name">
-            <span className="nav-wordmark">THE <em>ZHA</em> FOUNDRY</span>
-            <span className="nav-sub">Independent software foundry</span>
+          <em className="nav-zha">ZHA</em>
+          <span className="nav-stack">
+            <span>THE</span>
+            <span>FOUNDRY</span>
           </span>
         </a>
         <nav aria-label="Main navigation">

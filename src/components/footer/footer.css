@@ -39,10 +39,19 @@
   color: #847d75; margin-bottom: 34px;
 }
 .footer-lockup { display: flex; align-items: center; gap: 10px; }
-.footer-lockup svg { width: 24px; height: 24px; }
+.footer-lockup svg { width: 22px; height: 22px; }
 .footer-lockup svg polyline { stroke: #e07830; }
-.footer-lockup span { font-family: var(--font-stencil), var(--font-archivo), sans-serif; font-weight: 400; font-size: 13.5px; letter-spacing: 0.2em; color: #f0ebe3; }
-.footer-lockup em { font-style: normal; color: #e07830; }
+.footer-zha {
+  font-family: var(--font-stencil), var(--font-archivo), sans-serif;
+  font-weight: 700; font-size: 22px; line-height: 1; letter-spacing: 0.05em;
+  font-style: normal; color: #e07830;
+}
+.footer-stack { display: grid; gap: 1px; }
+.footer-stack span {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 8px; font-weight: 500; letter-spacing: 0.28em;
+  color: #9b9288;
+}
 .footer-note { color: #9b9288; font-size: 0.88rem; max-width: 46ch; margin-top: 14px; }
 .footer-links { display: grid; gap: 8px; font-family: var(--font-plex-mono), ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
 .footer-links a { color: #9b9288; text-decoration: none; }

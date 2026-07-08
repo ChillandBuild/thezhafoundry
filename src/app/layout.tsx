@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Archivo, IBM_Plex_Mono, Saira_Stencil_One } from 'next/font/google';
+import { Archivo, IBM_Plex_Mono, Big_Shoulders_Stencil } from 'next/font/google';
 import './globals.css';
 
 const archivo = Archivo({
@@ -16,11 +16,11 @@ const plexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
-// third family is a deliberate exception: brand wordmark only —
-// stencil lettering is how foundries mark castings and crates
-const stencil = Saira_Stencil_One({
+// third family: brand wordmark only — Big Shoulders Stencil is the
+// industrial crate-marking face foundries use on castings and crates
+const stencil = Big_Shoulders_Stencil({
   subsets: ['latin'],
-  weight: '400',
+  weight: '700',
   variable: '--font-stencil',
   display: 'swap',
 });
