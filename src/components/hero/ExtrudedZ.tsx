@@ -5,13 +5,15 @@ import { SteppedZ, SteppedZHeat } from '../marks/Marks';
 
 // depth stack: carbon shadow layers rise to the molten face
 const LAYERS = [
-  { z: -36, stroke: '#241d18' },
-  { z: -27, stroke: '#38271c' },
-  { z: -18, stroke: '#5a3013' },
-  { z: -9, stroke: 'var(--deep)' },
+  { z: -48, stroke: '#241d18' },
+  { z: -36, stroke: '#38271c' },
+  { z: -24, stroke: '#5a3013' },
+  { z: -12, stroke: 'var(--deep)' },
 ] as const;
 
-const TILT_MAX = 9; // degrees
+const TILT_MAX = 8; // degrees of pointer play
+const BASE_RX = 13; // resting tilt — matches the CSS fallback transform
+const BASE_RY = -16;
 
 /**
  * The Stepped Z as a casting, not a glyph: stacked strokes extrude it into
@@ -35,7 +37,7 @@ export function ExtrudedZ() {
     const step = () => {
       rx += (targetX - rx) * 0.08;
       ry += (targetY - ry) * 0.08;
-      el.style.transform = `rotateX(${rx.toFixed(3)}deg) rotateY(${ry.toFixed(3)}deg)`;
+      el.style.transform = `rotateX(${(BASE_RX + rx).toFixed(3)}deg) rotateY(${(BASE_RY + ry).toFixed(3)}deg)`;
       if (Math.abs(targetX - rx) > 0.01 || Math.abs(targetY - ry) > 0.01) {
         raf = requestAnimationFrame(step);
       } else {

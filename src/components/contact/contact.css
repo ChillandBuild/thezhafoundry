@@ -1,13 +1,15 @@
 /* the receiving mold — the seam's pour lands here, at the end of the line */
 .pour-mold {
-  position: absolute; bottom: 0; left: calc(var(--seam-left) - 16px);
-  width: 36px; height: 26px; pointer-events: none;
-  clip-path: polygon(0 0, 18% 100%, 82% 100%, 100% 0, 88% 0, 74% 78%, 26% 78%, 12% 0);
-  background: var(--steel); opacity: 0.65;
+  position: absolute; bottom: 0; left: calc(var(--seam-left) - 22px);
+  width: 48px; height: 36px; pointer-events: none;
+  clip-path: polygon(0 0, 16% 100%, 84% 100%, 100% 0, 86% 0, 74% 80%, 26% 80%, 14% 0);
+  background: color-mix(in srgb, var(--copper) 55%, var(--steel));
+  opacity: 0.9;
 }
 .pour-mold::after {
-  content: ''; position: absolute; left: 26%; right: 26%; bottom: 22%; height: 30%;
+  content: ''; position: absolute; left: 26%; right: 26%; bottom: 20%; height: 34%;
   background: var(--hot);
+  box-shadow: 0 0 12px 3px var(--glow-hot);
 }
 @media (prefers-reduced-motion: no-preference) {
   .pour-mold::after { animation: mold-glow 3s ease-in-out infinite; }

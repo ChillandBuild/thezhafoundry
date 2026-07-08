@@ -1,20 +1,28 @@
 import { decode } from './decode';
 import type { Effect } from './types';
 
-/** Split a hero line into per-character spans for the cast-and-cool entrance. */
+/** Split a hero line into word groups of per-character spans — words never break. */
 function splitChars(line: HTMLElement): HTMLElement[] {
   const text = line.textContent ?? '';
   const finalColor = getComputedStyle(line).color;
   line.setAttribute('aria-hidden', 'true');
   line.textContent = '';
-  return Array.from(text).map((ch) => {
-    const span = document.createElement('span');
-    span.className = 'hero-char';
-    span.textContent = ch === ' ' ? ' ' : ch;
-    span.dataset.cool = finalColor;
-    line.appendChild(span);
-    return span;
+  const chars: HTMLElement[] = [];
+  text.split(' ').forEach((word, i) => {
+    if (i > 0) line.appendChild(document.createTextNode(' '));
+    const group = document.createElement('span');
+    group.className = 'hero-word';
+    for (const ch of word) {
+      const span = document.createElement('span');
+      span.className = 'hero-char';
+      span.textContent = ch;
+      span.dataset.cool = finalColor;
+      group.appendChild(span);
+      chars.push(span);
+    }
+    line.appendChild(group);
   });
+  return chars;
 }
 
 /**

@@ -33,7 +33,9 @@ export function ZhaStandard() {
             ))}
             <p className="standard-version">Zha Standard v0.1 — expands as the foundry learns</p>
           </div>
-          <SealHexZ className="standard-seal" />
+          <div className="seal-jig">
+            <SealHexZ className="standard-seal" />
+          </div>
         </div>
       </div>
     </section>
