@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#141110"/>
+  <!-- heat-gradient mark on carbon — the "hot" state (brand/stepped-z-heat.svg)
+       with the hero's forge glow, layered soft + tight so it reads as heat,
+       not a UI shadow -->
+  <svg x="175" y="175" width="450" height="450" viewBox="0 0 64 64" fill="none">
+    <defs>
+      <linearGradient id="heat" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffc46b"/>
+        <stop offset=".38" stop-color="#ff9a3d"/>
+        <stop offset=".68" stop-color="#e07830"/>
+        <stop offset="1" stop-color="#8a8078"/>
+      </linearGradient>
+      <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+        <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#e07830" flood-opacity="0.55"/>
+        <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="#ffb25e" flood-opacity="0.5"/>
+      </filter>
+    </defs>
+    <polyline points="14,14 50,14 50,23 38,23 38,32 26,32 26,41 14,41 14,50 50,50"
+      filter="url(#glow)"
+      stroke="url(#heat)" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+  </svg>
+</svg>

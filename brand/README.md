@@ -24,9 +24,14 @@ tokens they reference.
 
 | File | What | Canvas |
 |------|------|--------|
-| `linkedin/profile-picture-{dark,light}.png` | Company Page logo | 400×400 |
+| `linkedin/profile-picture-{dark,light,heat}.svg` | Company Page logo — vector source | 800×800 |
+| `linkedin/profile-picture-{dark,light,heat}.png` | Company Page logo — upload format | 800×800 (2× LinkedIn's 400) |
 | `linkedin/cover-banner-{dark,light}.png` | Company Page cover image | 4200×700 |
 | `linkedin/launch-post-{dark,light}.png` | First feed post announcing the page | 1080×1080 |
+
+The `heat` profile picture is the molten-gradient mark glowing on carbon —
+per the heat-is-a-state rule below, use it when the page should read "hot"
+(launch week, active campaign); `dark`/`light` are the steady-state marks.
 
 Each ships in both themes; pick one at upload time. Canvas sizes are
 LinkedIn's official Company Page spec (not the personal-profile sizes most
