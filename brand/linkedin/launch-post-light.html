@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="shared.css">
+<style>
+  html, body { width: 1080px; height: 1080px; }
+  .canvas {
+    width: 1080px; height: 1080px; background: #f2ede4;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .mark {
+    width: 260px; height: 260px;
+    filter: drop-shadow(0 0 18px rgba(224, 120, 48, 0.45));
+    margin-bottom: 40px;
+  }
+  .wordmark {
+    margin-bottom: 56px; padding: 12px 30px; gap: 16px;
+    --bracket-w: 2px; --bracket-color: #ad4a14; --bracket-size: 12px;
+  }
+  .wordmark-zha { font-size: 44px; letter-spacing: 0.04em; color: #ad4a14; }
+  .wordmark-stack { gap: 4px; }
+  .wordmark-stack span { font-size: 15px; letter-spacing: 0.3em; color: #1c1815; }
+
+  .headline {
+    font-family: 'Archivo', sans-serif; font-weight: 800;
+    font-size: 62px; letter-spacing: -0.01em;
+    color: #1c1815; margin-bottom: 24px;
+  }
+  .subhead {
+    font-family: 'Archivo', sans-serif; font-weight: 500;
+    font-size: 30px; color: #5f584f;
+    max-width: 780px; line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <svg class="mark" viewBox="0 0 64 64" fill="none">
+      <defs>
+        <linearGradient id="heat" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffc46b"/>
+          <stop offset=".38" stop-color="#ff9a3d"/>
+          <stop offset=".68" stop-color="#e07830"/>
+          <stop offset="1" stop-color="#8a8078"/>
+        </linearGradient>
+      </defs>
+      <polyline points="14,14 50,14 50,23 38,23 38,32 26,32 26,41 14,41 14,50 50,50"
+        stroke="url(#heat)" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+    </svg>
+    <div class="wordmark">
+      <em class="wordmark-zha">ZHA</em>
+      <span class="wordmark-stack"><span>THE</span><span>FOUNDRY</span></span>
+    </div>
+    <div class="headline">The Zha Foundry is live.</div>
+    <div class="subhead">Run a free Assay on what you&rsquo;ve already shipped.</div>
+  </div>
+</body>
+</html>
