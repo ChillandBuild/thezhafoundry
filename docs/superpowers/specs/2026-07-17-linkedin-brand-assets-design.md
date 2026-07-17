@@ -61,21 +61,33 @@ colors:
 
 ## 2. Cover banner
 
-- **Canvas**: 1584×396px (LinkedIn's recommended upload size).
+- **Canvas**: 4200×700px, 6:1 aspect ratio. **Correction from the version of
+  this spec first committed**: that version specified 1584×396 (4:1), which
+  is LinkedIn's *personal profile* banner size. Verified against LinkedIn's
+  own Help Center (`image-specifications-for-your-linkedin-pages-and-career-pages`):
+  the Company Page cover image spec is 4200×700 for both minimum and
+  recommended upload size.
 - **Layout** (mirrors the homepage hero's headline-left / mark-right composition):
-  - Headline, upper-left: "You vibe code it." / "We forge it." — second line in
-    the theme's hot/copper accent color, matching the hero treatment exactly
-    (`src/components/hero/Hero.tsx` copy, reused verbatim — no new copy invented).
-  - Wordmark lockup, lower-left: "THE ZHA FOUNDRY" in the existing nav lockup
+  - Wordmark lockup, top-left: "THE ZHA FOUNDRY" in the existing nav lockup
     style (Big Shoulders Stencil for "ZHA", Plex Mono for the rest).
+  - Headline, below the wordmark, left-aligned: "You vibe code it." / "We forge
+    it." — second line in the theme's copper accent color, matching the hero
+    treatment exactly (`.forge-line { color: var(--copper) }` in
+    `src/components/hero/hero.css`, copy reused verbatim from
+    `src/components/hero/Hero.tsx` — no new copy invented).
   - Stepped Z mark, right side, vertically centered, rendered in the heat
     gradient (`stepped-z-heat.svg` treatment) with a soft glow — same visual
     role as the hero's large Z.
   - No readout/telemetry line (e.g. "POUR TEMP 1,084.6°C") — cut per feedback;
     the composition reads cleaner without it at banner scale.
-- **Safe zone**: bottom-left 168×168px region stays clear of all content. This
-  is where LinkedIn overlays the Company Page logo on top of the cover banner
-  on desktop — anything placed there gets covered.
+- **Safe zone**: LinkedIn's Help Center doesn't publish an exact logo-overlap
+  box for Company Pages (unlike secondary/aggregator sites, which disagree
+  with each other on which corner). Their own guidance is simply to keep key
+  content off all edges, "especially the lower-right corner." This design
+  treats both bottom corners as reduced-priority: the wordmark and headline
+  sit in the upper-left two-thirds of the canvas height, nothing is placed in
+  the bottom 20% of the canvas at all, and there's a generous outer margin
+  (≥5% of width/height) on every side to survive mobile cropping.
 - **Dark and light exports**, same layout, theme tokens swapped.
 
 ## 3. Launch-announcement post graphic
@@ -110,8 +122,8 @@ Files:
 brand/linkedin/
   profile-picture-dark.html    → profile-picture-dark.png    (400×400)
   profile-picture-light.html   → profile-picture-light.png   (400×400)
-  cover-banner-dark.html       → cover-banner-dark.png       (1584×396)
-  cover-banner-light.html      → cover-banner-light.png      (1584×396)
+  cover-banner-dark.html       → cover-banner-dark.png       (4200×700)
+  cover-banner-light.html      → cover-banner-light.png      (4200×700)
   launch-post-dark.html        → launch-post-dark.png        (1080×1080)
   launch-post-light.html       → launch-post-light.png       (1080×1080)
   render.mjs                   (renders all six HTML files to PNG)
