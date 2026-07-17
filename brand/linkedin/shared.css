@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=IBM+Plex+Mono:wght@400;500&family=Big+Shoulders+Stencil+Display:wght@700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  overflow: hidden;
+}
+
+.canvas { position: relative; overflow: hidden; }
+
+/* gate-bracket frame around the wordmark lockup — matches .nav-lockup
+   on the live site (src/components/nav/nav.css). Each pseudo-element
+   only gets the three border sides that stay closed; the shorthand
+   `border` property is never used here because it would set all four
+   sides and silently close the open side. */
+.wordmark {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.wordmark::before, .wordmark::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0;
+  width: var(--bracket-size, 12px);
+  border-top: var(--bracket-w, 2px) solid var(--bracket-color, currentColor);
+  border-bottom: var(--bracket-w, 2px) solid var(--bracket-color, currentColor);
+  pointer-events: none;
+}
+.wordmark::before { left: 0; border-left: var(--bracket-w, 2px) solid var(--bracket-color, currentColor); }
+.wordmark::after { right: 0; border-right: var(--bracket-w, 2px) solid var(--bracket-color, currentColor); }
+
+.wordmark-zha {
+  font-family: 'Big Shoulders Stencil Display', 'Archivo', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+.wordmark-stack { display: grid; }
+.wordmark-stack span {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-weight: 500;
+  line-height: 1;
+}
