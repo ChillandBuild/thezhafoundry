@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="shared.css">
+<style>
+  html, body { width: 4200px; height: 700px; }
+  .canvas { width: 4200px; height: 700px; background: #f2ede4; }
+
+  .wordmark {
+    position: absolute; top: 70px; left: 230px;
+    padding: 14px 34px; gap: 20px;
+    --bracket-w: 2px; --bracket-color: #ad4a14; --bracket-size: 14px;
+  }
+  .wordmark-zha { font-size: 60px; letter-spacing: 0.04em; color: #ad4a14; }
+  .wordmark-stack { gap: 4px; }
+  .wordmark-stack span { font-size: 20px; letter-spacing: 0.3em; color: #1c1815; }
+
+  .headline {
+    position: absolute; left: 230px; top: 200px; width: 2350px;
+    font-family: 'Archivo', sans-serif; font-weight: 800;
+    font-size: 132px; line-height: 1.05; letter-spacing: -0.01em;
+    color: #1c1815;
+  }
+  .headline .line { display: inline-block; }
+  .headline .forge { color: #ad4a14; }
+
+  .mark {
+    position: absolute; right: 240px; top: 50%; transform: translateY(-50%);
+    width: 380px; height: 380px;
+    filter: drop-shadow(0 0 18px rgba(224, 120, 48, 0.45));
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="wordmark">
+      <em class="wordmark-zha">ZHA</em>
+      <span class="wordmark-stack"><span>THE</span><span>FOUNDRY</span></span>
+    </div>
+    <div class="headline">
+      <span class="line">You vibe code it.</span><br>
+      <span class="line forge">We forge it.</span>
+    </div>
+    <svg class="mark" viewBox="0 0 64 64" fill="none">
+      <defs>
+        <linearGradient id="heat" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffc46b"/>
+          <stop offset=".38" stop-color="#ff9a3d"/>
+          <stop offset=".68" stop-color="#e07830"/>
+          <stop offset="1" stop-color="#8a8078"/>
+        </linearGradient>
+      </defs>
+      <polyline points="14,14 50,14 50,23 38,23 38,32 26,32 26,41 14,41 14,50 50,50"
+        stroke="url(#heat)" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+    </svg>
+  </div>
+</body>
+</html>
