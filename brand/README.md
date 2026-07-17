@@ -16,6 +16,23 @@ https://claude.ai/code/artifact/9a064e86-1dfa-4efe-a242-9b3bc4c75524
 | `ladder-carbon.svg` | Ladder, carbon | Same, on light grounds |
 | `ladder-small.svg` | Three-rung simplified ladder | Tiny sizes (≤24px) where seven rungs blur |
 
+## LinkedIn Company Page assets
+
+Source HTML lives in `brand/linkedin/`; run `npm run linkedin:assets` to
+regenerate the PNGs after any change to the HTML, `shared.css`, or the brand
+tokens they reference.
+
+| File | What | Canvas |
+|------|------|--------|
+| `linkedin/profile-picture-{dark,light}.png` | Company Page logo | 400×400 |
+| `linkedin/cover-banner-{dark,light}.png` | Company Page cover image | 4200×700 |
+| `linkedin/launch-post-{dark,light}.png` | First feed post announcing the page | 1080×1080 |
+
+Each ships in both themes; pick one at upload time. Canvas sizes are
+LinkedIn's official Company Page spec (not the personal-profile sizes most
+third-party guides quote) — see
+`docs/superpowers/specs/2026-07-17-linkedin-brand-assets-design.md`.
+
 ## Rules
 
 - Square caps, miter joins, never rounded. The mark is struck, not drawn.
