@@ -18,6 +18,10 @@ export function AssayForm() {
   return (
     <form className="assay" action={action}>
       <input type="hidden" name="kind" value="assay" />
+      <div className="hp-slot" aria-hidden="true">
+        <label htmlFor="assay-company">Company</label>
+        <input id="assay-company" name="company" tabIndex={-1} autoComplete="off" />
+      </div>
       <label className="assay-label" htmlFor="assay-link">
         Paste your project link. Get a free assay.
       </label>

@@ -1,6 +1,8 @@
 'use server';
 
-import { validateLead } from '../lib/leads';
+import { baseUrl, loadEnv } from '../lib/assay/config';
+import { defaultDeps } from '../lib/assay/deps';
+import { processLead, type IntakeDeps } from '../lib/assay/intake';
 
 export type LeadState = {
   status: 'idle' | 'sent' | 'error';
@@ -8,27 +10,24 @@ export type LeadState = {
   values?: { link: string; email: string; name: string; message: string };
 };
 
-export async function submitLead(_prev: LeadState, formData: FormData): Promise<LeadState> {
-  const raw = {
-    link: String(formData.get('link') ?? ''),
-    email: String(formData.get('email') ?? ''),
-    name: String(formData.get('name') ?? ''),
-    message: String(formData.get('message') ?? ''),
-  };
-  const result = validateLead({ kind: formData.get('kind'), ...raw });
-
-  if (!result.ok) return { status: 'error', message: result.error, values: raw };
-
-  // TODO(launch-gate): deliver the lead — wire Resend (email) or a Slack webhook BEFORE
-  // pointing real traffic here. The console.log below is a development stub; hosted
-  // runtime logs are short-lived, so it is NOT durable storage for real leads.
-  console.log('[zha-lead]', JSON.stringify(result.lead));
-
+function intakeDeps(): IntakeDeps {
+  const env = loadEnv();
+  const deps = defaultDeps();
   return {
-    status: 'sent',
-    message:
-      result.lead.kind === 'assay'
-        ? 'Link received. Your assay report lands in your inbox within 48 hours.'
-        : 'Received. A human replies within one working day.',
+    store: deps.store,
+    notifyFounder: deps.notifyFounder,
+    log: deps.log,
+    kickoff: async (submissionId) => {
+      const res = await fetch(`${baseUrl()}/api/assay/run`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-assay-secret': env.ASSAY_RUN_SECRET },
+        body: JSON.stringify({ submissionId }),
+      });
+      if (res.status !== 202) throw new Error(`kickoff rejected: ${res.status}`);
+    },
   };
+}
+
+export async function submitLead(prev: LeadState, formData: FormData): Promise<LeadState> {
+  return processLead(intakeDeps(), prev, formData);
 }

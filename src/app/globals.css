@@ -136,3 +136,12 @@ body::after {
     100% { opacity: 1; transform: scale(1); }
   }
 }
+
+/* Honeypot: visually removed, still submitted by bots that fill every field. */
+.hp-slot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}

@@ -11,6 +11,10 @@ export function ContactForm() {
   return (
     <form className="contact-form" action={action}>
       <input type="hidden" name="kind" value="contact" />
+      <div className="hp-slot" aria-hidden="true">
+        <label htmlFor="contact-company">Company</label>
+        <input id="contact-company" name="company" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="row">
         <div>
           <label htmlFor="c-name">Name</label>
