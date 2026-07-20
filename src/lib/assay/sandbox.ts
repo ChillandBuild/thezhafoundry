@@ -16,7 +16,9 @@ function shellQuote(path: string): string {
 export async function collectRepo(repoUrl: string): Promise<RepoContext> {
   const sandbox = await Sandbox.create({ runtime: 'node24', timeout: 240_000 });
   try {
-    await sandbox.runCommand('git', ['clone', '--depth', '1', repoUrl, 'repo']);
+    // `--` stops git option parsing; callers must still pass a canonical https URL
+    // (see pipeline.ts) so hostile transports like ext:: never reach git at all.
+    await sandbox.runCommand('git', ['clone', '--depth', '1', '--', repoUrl, 'repo']);
     const guard = await sandbox.runCommand('sh', ['-c', 'test -d repo/.git && echo ok']);
     if ((await guard.stdout()).trim() !== 'ok') {
       throw new Error(`clone failed for ${repoUrl} — repo missing, private, or unreachable`);
