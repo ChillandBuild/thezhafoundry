@@ -1,0 +1,1 @@
+{ "name": "leaky-app", "private": true, "dependencies": { "next": "14.0.0", "@supabase/supabase-js": "2.39.0" } }
