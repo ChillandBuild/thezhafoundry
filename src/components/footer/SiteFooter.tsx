@@ -29,7 +29,7 @@ export function SiteFooter() {
         <nav className="footer-links" aria-label="Footer">
           <a href="#assay">Run an assay</a>
           <a href="#standard">The Zha Standard</a>
-          <a href="mailto:kanthaiyee@gmail.com">kanthaiyee@gmail.com</a>
+          <a href="mailto:thezhafoundry@gmail.com">thezhafoundry@gmail.com</a>
         </nav>
         <p className="footer-legal">© 2026 The Zha Foundry · Forged, not generated.</p>
       </div>

@@ -1,0 +1,16 @@
+.founder-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 48px; align-items: center; margin-top: 40px; }
+@media (max-width: 720px) { .founder-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+/* the white-background photo sits on a light tile; multiply lets its white merge into the tile in both themes */
+.founder-photo {
+  margin: 0; width: 100%; max-width: 280px; aspect-ratio: 1;
+  background: var(--light-tile); border: 1px solid var(--line);
+  border-radius: 4px; overflow: hidden; isolation: isolate;
+}
+.founder-photo img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+
+.founder-name { font-weight: 800; font-size: var(--text-h2); letter-spacing: -0.015em; line-height: 1.05; }
+.founder-role { margin-top: 8px; color: var(--copper); font-family: var(--font-plex-mono), monospace; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.founder-bio { margin-top: 20px; color: var(--muted); max-width: 56ch; }
+.founder-mail { display: inline-block; margin-top: 20px; color: var(--text); text-underline-offset: 4px; text-decoration-color: var(--copper); }
+.founder-mail:hover { color: var(--copper); }

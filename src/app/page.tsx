@@ -9,6 +9,7 @@ import { ProcessLine } from '../components/process/ProcessLine';
 import { Manifesto } from '../components/manifesto/Manifesto';
 import { ZhaStandard } from '../components/standard/ZhaStandard';
 import { Teardowns } from '../components/teardowns/Teardowns';
+import { Founder } from '../components/founder/Founder';
 import { ContactSection } from '../components/contact/ContactSection';
 import { SiteFooter } from '../components/footer/SiteFooter';
 import { PourSeam } from '../components/seam/PourSeam';
@@ -30,6 +31,7 @@ export default function Home() {
         <Manifesto />
         <ZhaStandard />
         <Teardowns />
+        <Founder />
         <ContactSection />
       </main>
       <SiteFooter />
